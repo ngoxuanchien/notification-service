@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: notification-service
+  datasource:
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:}
+    url: ${SPRING_DATASOURCE_URL:}
+    username: ${SPRING_DATASOURCE_USERNAME:}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+
+kafka:
+  consumer-kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:}
+    group-id: ${KAFKA_GROUP_ID:}
+    topic: ${KAFKA_TOPIC:}
+    auto-commit: ${KAFKA_AUTO_COMMIT:true}
+    auto-offset-reset: latest
+    security-protocol: ${KAFKA_SECURITY_PROTOCOL:PLAINTEXT}
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
